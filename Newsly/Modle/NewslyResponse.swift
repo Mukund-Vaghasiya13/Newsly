@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct NewslyResponse:Codable {
+    let totalResults: Int?
+    let articles: [Article]
+    let status: String?
+}
