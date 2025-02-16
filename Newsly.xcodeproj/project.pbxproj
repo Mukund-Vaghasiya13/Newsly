@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		605960BD2D61DBD80075C7C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 605960BC2D61DBD80075C7C9 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		605960BC2D61DBD80075C7C9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60DFB9622D5F168000856963 /* Newsly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,6 +50,7 @@
 		60DFB9592D5F168000856963 = {
 			isa = PBXGroup;
 			children = (
+				605960BC2D61DBD80075C7C9 /* README.md */,
 				60DFB9642D5F168000856963 /* Newsly */,
 				60DFB9632D5F168000856963 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605960BD2D61DBD80075C7C9 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
