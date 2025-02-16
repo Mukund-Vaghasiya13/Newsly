@@ -26,8 +26,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         ConfiguerViewAndNavigationBar()
         ConfigureSubViews()
-        FetchNetworkData(title: "general")
         ConfigureDataSource()
+        FetchNetworkData(title: "general")
     }
     
     func ConfiguerViewAndNavigationBar(){
