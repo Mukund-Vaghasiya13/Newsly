@@ -22,7 +22,7 @@ class ArticleTableViewCell: UITableViewCell {
         
         
         addSubview(ArictleImage)
-        ArictleImage.image = UIImage(named: "Me")
+        ArictleImage.image = UIImage(named: "404")
         
         ArticleTitle.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         ArticleTitle.numberOfLines = 2

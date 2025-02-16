@@ -6,10 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
 class HomeViewController: UIViewController {
-    
-    
     
     enum Section{
         case Main
@@ -56,6 +55,7 @@ class HomeViewController: UIViewController {
         tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         tableView.rowHeight = 150
+        tableView.delegate = self
         
         view.addSubview(tableView)
         
@@ -80,6 +80,7 @@ class HomeViewController: UIViewController {
         dataSource = UITableViewDiffableDataSource<Section,Article>(tableView: self.tableView, cellProvider: { [self] tableView, indexPath, itemIdentifier in
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ArticleTableViewCell
+            cell.ArictleImage.DownloadImage(url: response[indexPath.row].urlToImage ?? "")
             cell.ArticleTitle.text = response[indexPath.row].title
             cell.ArticleDescription.text = response[indexPath.row].description
             
@@ -146,7 +147,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomTabBarCell.identifier, for: indexPath) as! CustomTabBarCell
-        
+    
         cell.label.text = items[indexPath.row]
         cell.label.font = UIFont.systemFont(ofSize: 17,weight: .bold)
         cell.label.minimumScaleFactor = 0.5
@@ -169,3 +170,14 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     }
 }
 
+
+
+extension HomeViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: response[indexPath.row].url ?? "") else { return }
+        
+        let safariVC = SFSafariViewController(url: url)
+        navigationController?.present(safariVC, animated: true)
+                
+    }
+}

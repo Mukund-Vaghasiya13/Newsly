@@ -5,7 +5,7 @@
 //  Created by Mukund vaghasiya  on 15/02/25.
 //
 
-import Foundation
+import UIKit
 
 enum ApiError: String, Error{
     case invalidUrl = "Url invalid"
@@ -20,6 +20,8 @@ class NetworkManager{
     private init(){}
     
     private let baseUrl = "https://newsapi.org/v2/"
+    
+    var chache = NSCache<NSString, UIImage>()
     
     func getNews(url:String,completion: @escaping (Result<NewslyResponse, ApiError>) -> Void){
         
@@ -62,6 +64,5 @@ class NetworkManager{
         
         
     }
-    
-    
+
 }
